@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/qwea.png');
+    background-size: cover;
+}
+
+.title {
+    font-size: 2.1rem;
+    line-height: 1.4;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    color: blue;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.image-container {
+    text-align: center;
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto; 
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 80vh;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto; 
+    transition: opacity 0.5s ease-in-out;
+}
+
+.buttonizq {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; 
+}
+.buttonder {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px; 
+}
+.button-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#prev-button {
+    left: 10px; /* Ajusta según sea necesario */
+}
+
+#next-button {
+    right: 10px; /* Ajusta según sea necesario */
+}
+
+.download-link {
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.buttonizq:hover, .buttonder:hover {
+    background-color: rgb(0, 183, 255);
+    border-color: rgb(0, 183, 255);
+}
+
+.download-link:hover{
+    background-color: green;
+    border-color: green;
+}

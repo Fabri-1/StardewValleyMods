@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('imagenes/qwea.png');
+    background-size: cover;
+}
+
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+
+
+
+
+.juegofome {
+    border: 2px solid black;
+    text-align: center;
+}
+
+.botonxd {
+    text-align: center;
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.botonxd:hover {
+    background-color: rgb(0, 183, 255);
+    border-color: rgb(0, 183, 255);
+}
+
+

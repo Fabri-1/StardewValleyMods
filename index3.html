@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YO SOY LAS PUERTAS DEL BALDURS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container text-center">
+        <div class="image-container">
+            <header>
+            <div class="title" id="title">CARGANDO</div>
+        </header>
+            <div class="subtitle" id="subtitle">ESTA CARGANDO HOLA MAMA</div>
+            <img id="image" src="imagenes/tav.png" alt="Imagen 1" class="img-fluid">
+            <a id="download-link" class="download-link btn btn-danger mt-3" href="imagenes/descarga-tav.zip" download target="_blank">Descargar</a>
+        </div>
+    </div>
+    <div class="buttonizq">
+        <button class="btn btn-primary btn-lg buttonizq" id="prev-button">Anterior</button>
+    </div>
+    <div class="buttonder">
+        <button class="btn btn-primary btn-lg buttonder" id="next-button">Siguiente</button>
+    </div>
+    <script>
+        //Stardust
+        const images = ['imagenes/stardrop.png', 'imagenes/biyin.png',
+        ]; 
+        //Links
+        const downloads = ['downloads/stardrop.zip',
+        'index4.html',
+        ]; 
+        //Names
+        const titles = ['Stardrop', 'YA AHORA LOS MODS?'
+        ]; //Mods order
+        //Subtitle
+        const subtitles = ['bvuno con esta wea podi administrar los mods, es mas facil, eso po, tetas o culos?', 
+        'si po y son 3 pa que no me llori que son demasiados',
+        ];
+        //Bool
+        const downloaded = [false, false];
+
+        //Not my part from here
+        let currentIndex = 0;
+        const imageElement = document.getElementById('image');
+        const downloadLinkElement = document.getElementById('download-link');
+        const titleElement = document.getElementById('title');
+        const subtitleElement = document.getElementById('subtitle');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const imageContainer = document.querySelector('.image-container');
+
+        function updateContent() {
+            imageElement.classList.add('fade-out');
+            setTimeout(() => {
+                imageElement.src = images[currentIndex];
+                downloadLinkElement.href = downloads[currentIndex];
+                titleElement.textContent = titles[currentIndex];
+                subtitleElement.textContent = subtitles[currentIndex];
+                imageElement.classList.remove('fade-out');
+
+                if (downloaded[currentIndex]) {
+                    downloadLinkElement.classList.remove('btn-danger');
+                    downloadLinkElement.classList.add('btn-success');
+                } else {
+                    downloadLinkElement.classList.remove('btn-success');
+                    downloadLinkElement.classList.add('btn-danger');
+                }
+            }, 500); 
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateContent();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateContent();
+        }
+
+        nextButton.addEventListener('click', nextImage);
+        prevButton.addEventListener('click', prevImage);
+
+        downloadLinkElement.addEventListener('click', function() {
+            downloaded[currentIndex] = true; 
+            downloadLinkElement.classList.remove('btn-danger');
+            downloadLinkElement.classList.add('btn-success');
+        });
+
+        updateContent();
+    </script>
+</body>
+</html>
